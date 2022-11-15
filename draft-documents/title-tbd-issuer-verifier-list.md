@@ -327,6 +327,20 @@ The time/efficiency, offline and privacy issues with the API approach can be res
 
 &lt;@Manu: should we invite Stephen Curran to develop a serialization for anoncreds?>
 
+## 3.12 LACChain Roots of Trust
+
+LACChain has developed a blockchain-based mechanism to verify issuer’s identities, replicating the roots of trust we have on our browsers for verifying domains. The same way our browsers’ roots of trust allow us to verify X.509 certificates for verified and secure interaction over the Internet, LACChain’s root of trust allow to verify who is the issuer of a verifiable credential. The proposal consists on two elements: a smart-contract-based root of trust and a verifiable-credential-based root of trust.
+
+The way it works is simple and can be described in the following steps:
+
+* Registering a DID in a public DID Registry: Any entity, in this case potential issuers of verifiable credentials or other type of assets (e.g., tokens), can register its DID in the DID Registry (see more).
+* Requesting the operator of a PKD to verify their DID: A trusted entity (i.e., a certifier) maintains a permissioned smart-contract-based public key directory. In this smart contract the trusted entity maintains a directory of information that relates DIDs to information about the real identity of the entities operating those DIDs. In this second step, the owner of a DID asks the operator of the PKD to verify its identity.
+* Verification of the issuer’s identity: The operator of the PKD accomplishes the verification of the issuer’s identity following whatever processes they have established for it (including proof of control of the keys associated to the DID and proof if identity through traditional mechanisms).
+* Adding the issuers DID and identity to the PKD: The operator of the PKD adds the issuers DID and identity into the PKD for public consultation.
+* Creating a Trusted List connected to the PKD: The entity added into the PKD can also operate its own smart-contract-based directory (a trusted list) of DIDs linked to identities. With this, we already have a two-level root of trust.  
+* Iterate the process: This process can be iterate two create an N-level root of trust based on smart contracts that represent verified key directories.
+
+see more on [https://lacnet.lacchain.net/roots-of-trust/](https://lacnet.lacchain.net/roots-of-trust/)
 
 # 4. Requirements
 
